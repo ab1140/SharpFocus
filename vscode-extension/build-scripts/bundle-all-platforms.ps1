@@ -35,9 +35,10 @@ foreach ($runtime in $platforms) {
     dotnet publish $serverProject `
         --configuration $Configuration `
         --runtime $runtime `
-        --self-contained false `
+        --self-contained true `
         --output $outputDir `
-        /p:PublishSingleFile=false
+        /p:PublishSingleFile=true `
+        /p:EnableCompressionInSingleFile=true
 
     if ($LASTEXITCODE -eq 0) {
         $size = (Get-ChildItem $outputDir -Recurse -File | Measure-Object -Property Length -Sum).Sum / 1MB

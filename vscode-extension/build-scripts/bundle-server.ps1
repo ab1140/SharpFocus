@@ -25,15 +25,14 @@ if (-not (Test-Path $serverProject)) {
 Write-Host "Publishing language server..." -ForegroundColor Yellow
 
 # Publish for specified runtime
-# --self-contained false means it requires .NET runtime installed
-# For fully self-contained (no .NET required), use --self-contained true (but much larger)
+# --self-contained true bundles .NET runtime (no .NET installation required by users)
 dotnet publish $serverProject `
     --configuration $Configuration `
     --runtime $Runtime `
-    --self-contained false `
+    --self-contained true `
     --output $outputDir `
-    /p:PublishSingleFile=false `
-    /p:EnableCompressionInSingleFile=false
+    /p:PublishSingleFile=true `
+    /p:EnableCompressionInSingleFile=true
 
 if ($LASTEXITCODE -ne 0) {
     Write-Host "ERROR: Publish failed!" -ForegroundColor Red

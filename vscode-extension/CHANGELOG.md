@@ -2,6 +2,12 @@
 
 
 
+## [0.1.2] - 2025-11-09
+
+### Changed
+- Language server now ships as self-contained deployment - no .NET installation required by users
+- Single executable per platform for easier distribution and faster startup
+
 ## [0.1.1] - 2025-11-09
 
 ### Fixed
@@ -52,22 +58,22 @@
 
 ### Known Limitations
 - Single-method analysis only (interprocedural analysis planned)
-- Requires .NET 8.0 SDK or later
 - Analysis may take a moment for very large methods
 - Some complex aliasing patterns may be conservatively approximated
 
 ### Dependencies
 - VS Code 1.80.0 or later
-- .NET 8.0 SDK or later
 - vscode-languageclient 9.0.0
 
 ---
 
 ## Version History
 
+- **0.1.2** (2025-11-09): Self-contained deployment - no .NET installation required
 - **0.1.1** (2025-11-09): Fixed README image links
 - **0.1.0** (2025-11-09): Initial release with core Focus Mode functionality
 
-[Unreleased]: https://github.com/trrahul/SharpFocus/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/trrahul/SharpFocus/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/trrahul/SharpFocus/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/trrahul/SharpFocus/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/trrahul/SharpFocus/releases/tag/v0.1.0

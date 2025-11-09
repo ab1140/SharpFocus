@@ -163,18 +163,28 @@ public sealed class InMemoryWorkspaceManager : IWorkspaceManager
 
     private static IEnumerable<MetadataReference> GetMetadataReferences()
     {
-        var assemblies = new[]
-        {
-            typeof(object).Assembly,
-            typeof(Console).Assembly,
-            typeof(Enumerable).Assembly,
-        };
+        // Use Basic.Reference.Assemblies for reliable metadata references
+        // This works with both regular and single-file deployments
+        var trustedAssembliesPaths = ((string?)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES"))?.Split(Path.PathSeparator);
 
-        foreach (var assembly in assemblies)
+        if (trustedAssembliesPaths != null)
         {
-            if (!string.IsNullOrEmpty(assembly.Location))
+            var neededAssemblies = new HashSet<string>
             {
-                yield return MetadataReference.CreateFromFile(assembly.Location);
+                "System.Runtime",
+                "System.Private.CoreLib",
+                "System.Console",
+                "System.Linq",
+                "System.Collections"
+            };
+
+            foreach (var path in trustedAssembliesPaths)
+            {
+                var fileName = Path.GetFileNameWithoutExtension(path);
+                if (neededAssemblies.Contains(fileName))
+                {
+                    yield return MetadataReference.CreateFromFile(path);
+                }
             }
         }
     }
