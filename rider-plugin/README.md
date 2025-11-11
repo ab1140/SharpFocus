@@ -152,49 +152,12 @@ cd SharpFocus/rider-plugin
 # Run in Rider sandbox
 .\run-ide.ps1
 ```
-
-See [BUILD.md](BUILD.md) for detailed build instructions.
-
 ---
 
-## Troubleshooting
-
-### Plugin doesn't activate
-1. Check that you have a C# file open
-2. Verify Rider recognizes the project as a C# project
-3. Check **Help → Show Log in Explorer** for errors
-
-### Focus mode doesn't work
-1. Ensure you're clicking on a variable, parameter, or field
-2. Check settings: **Settings → Tools → SharpFocus**
-3. Verify server is running: look for "Language server running" in logs
-
-### Performance issues
-- Analysis is CPU-intensive for large methods
-- Consider using **MANUAL** mode for very large files
-- Check **Settings → Tools → SharpFocus** to adjust settings
-
----
-
-## Contributing
-
-Contributions welcome! See the main repository for guidelines:
-- [Main Repository](https://github.com/trrahul/SharpFocus)
-- [Issue Tracker](https://github.com/trrahul/SharpFocus/issues)
-
----
 
 ## Learn More
 
-- [Blog Series](https://www.rahultr.dev/posts/part1-getting-started/) - Deep dive into program slicing
-- [Architecture Overview](ARCHITECTURE.md)
-- [Debugging Guide](DEBUGGING.md)
-
----
-
-## Inspired By
-
-[Flowistry](https://github.com/willcrichton/flowistry) - The groundbreaking information flow analysis tool for Rust.
+- [Blog Series](https://www.rahultr.dev/posts/part1-getting-started/)
 
 ---
 
