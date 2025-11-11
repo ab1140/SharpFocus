@@ -122,36 +122,36 @@ Write-Host "📋 Package Contents:" -ForegroundColor Cyan
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 try {
     $zip = [System.IO.Compression.ZipFile]::OpenRead($zipPath)
-    
+
     # Check for plugin.xml
     $pluginXml = $zip.Entries | Where-Object { $_.FullName -like "*/plugin.xml" }
     if ($pluginXml) {
         Write-Host "   ✓ plugin.xml" -ForegroundColor Green
     }
-    
+
     # Check for server binaries
     $serverPlatforms = @("win-x64", "linux-x64", "osx-x64", "osx-arm64", "win-arm64", "linux-arm64")
     $foundPlatforms = @()
-    
+
     foreach ($platform in $serverPlatforms) {
         $serverBinary = $zip.Entries | Where-Object { $_.FullName -like "*server/$platform/*" }
         if ($serverBinary) {
             $foundPlatforms += $platform
         }
     }
-    
+
     if ($foundPlatforms.Count -gt 0) {
         Write-Host "   ✓ Language server binaries: $($foundPlatforms -join ', ')" -ForegroundColor Green
     } else {
         Write-Host "   ⚠ No language server binaries found" -ForegroundColor Yellow
     }
-    
+
     # Check for icons
     $icons = $zip.Entries | Where-Object { $_.FullName -like "*/icons/*.svg" }
     if ($icons) {
         Write-Host "   ✓ Icons ($($icons.Count) files)" -ForegroundColor Green
     }
-    
+
     $zip.Dispose()
 } catch {
     Write-Host "   ⚠ Could not verify package contents: $_" -ForegroundColor Yellow
