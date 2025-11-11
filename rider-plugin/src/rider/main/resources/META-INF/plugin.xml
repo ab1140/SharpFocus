@@ -1,0 +1,114 @@
+<idea-plugin>
+    <id>com.rahultr.sharpfocus</id>
+    <name>SharpFocus</name>
+    <version>0.1.0</version>
+    <vendor email="rahultrvjd@outlook.com" url="https://github.com/trrahul/SharpFocus">Rahul TR</vendor>
+
+    <description><![CDATA[
+        <h1>SharpFocus - Information Flow Analysis for C#</h1>
+        <p>
+            SharpFocus brings powerful information-flow analysis to JetBrains Rider.
+            Using program slicing techniques, it helps you understand data dependencies
+            and code relationships at a glance.
+        </p>
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Focus Mode:</strong> Click on any variable to see its complete dataflow</li>
+            <li><strong>Forward/Backward Slicing:</strong> Understand what influences a variable and what it influences</li>
+            <li><strong>Visual Highlighting:</strong> Two modes - Normal (minimalist) and Advanced (detailed)</li>
+            <li><strong>Flow Navigation:</strong> Navigate through flow locations with keyboard shortcuts</li>
+            <li><strong>Tree View:</strong> Hierarchical visualization of data flow</li>
+        </ul>
+        <h2>Quick Start</h2>
+        <ol>
+            <li>Open a C# file in Rider</li>
+            <li>Click on any variable, parameter, or field</li>
+            <li>Watch SharpFocus highlight the complete dataflow</li>
+            <li>Use <kbd>Alt+Shift+N</kbd> / <kbd>Alt+Shift+P</kbd> to navigate</li>
+        </ol>
+        <p>
+            Inspired by <a href="https://github.com/willcrichton/flowistry">Flowistry</a> for Rust.
+        </p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <h2>0.1.0</h2>
+        <ul>
+            <li>Initial release for JetBrains Rider</li>
+            <li>Focus mode with forward/backward slicing</li>
+            <li>Normal and Advanced display modes</li>
+            <li>Flow navigation and tree view</li>
+            <li>Intra-method analysis</li>
+        </ul>
+    ]]></change-notes>
+
+    <!-- Rider dependency -->
+    <depends>com.intellij.modules.rider</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Project services -->
+        <projectService serviceImplementation="com.jetbrains.rider.plugins.sharpfocus.SharpFocusPlugin"/>
+        <projectService serviceImplementation="com.jetbrains.rider.plugins.sharpfocus.lsp.SharpFocusLanguageServerManager"/>
+        <projectService serviceImplementation="com.jetbrains.rider.plugins.sharpfocus.lsp.SharpFocusFocusService"/>
+        <projectService serviceImplementation="com.jetbrains.rider.plugins.sharpfocus.lsp.TextDocumentSynchronizer"/>
+        <projectService serviceImplementation="com.jetbrains.rider.plugins.sharpfocus.navigation.NavigationManager"/>
+        <projectService serviceImplementation="com.jetbrains.rider.plugins.sharpfocus.settings.SharpFocusSettings"/>
+
+        <!-- Startup activity to initialize plugin -->
+        <postStartupActivity implementation="com.jetbrains.rider.plugins.sharpfocus.SharpFocusStartupActivity"/>
+
+        <!-- Tool Window -->
+        <toolWindow id="SharpFocus Flow"
+                    icon="AllIcons.Toolwindows.ToolWindowStructure"
+                    anchor="right"
+                    factoryClass="com.jetbrains.rider.plugins.sharpfocus.toolwindow.FlowTreeToolWindowFactory"/>
+
+        <!-- Settings -->
+        <projectConfigurable
+                parentId="tools"
+                instance="com.jetbrains.rider.plugins.sharpfocus.settings.SharpFocusConfigurable"
+                id="com.jetbrains.rider.plugins.sharpfocus.settings.SharpFocusConfigurable"
+                displayName="SharpFocus"/>
+
+        <!-- Notification Group -->
+        <notificationGroup id="SharpFocus" displayType="BALLOON"/>
+
+        <!-- Code Vision Provider -->
+        <codeInsight.codeVisionProvider implementation="com.jetbrains.rider.plugins.sharpfocus.codevision.SharpFocusCodeVisionProvider"/>
+    </extensions>
+
+    <actions>
+        <!-- Focus Mode Actions -->
+        <action id="SharpFocus.FocusMode"
+                class="com.jetbrains.rider.plugins.sharpfocus.actions.FocusModeAction"
+                text="Show Focus Mode"
+                description="Highlight data flow for the symbol at cursor">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift alt F"/>
+        </action>
+
+        <action id="SharpFocus.ClearFocusMode"
+                class="com.jetbrains.rider.plugins.sharpfocus.actions.ClearFocusModeAction"
+                text="Clear Focus Mode"
+                description="Clear focus mode highlights">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt C"/>
+        </action>
+
+        <!-- Navigation Actions -->
+        <action id="SharpFocus.NavigateNext"
+                class="com.jetbrains.rider.plugins.sharpfocus.actions.NavigateNextAction"
+                text="Navigate to Next Flow Location"
+                description="Navigate to the next flow location">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt N"/>
+        </action>
+
+        <action id="SharpFocus.NavigatePrevious"
+                class="com.jetbrains.rider.plugins.sharpfocus.actions.NavigatePreviousAction"
+                text="Navigate to Previous Flow Location"
+                description="Navigate to the previous flow location">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt P"/>
+        </action>
+    </actions>
+
+</idea-plugin>
